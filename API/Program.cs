@@ -1,5 +1,7 @@
 using API.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Net.Http.Headers;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,14 +11,16 @@ builder.Services.AddDbContext<DataContext>(opt =>
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 
 });
+
+
 // Add services to the container.b 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
+builder.Services.AddCors();
 var app = builder.Build();
-
+app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://Localhost:4200"));
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -45,6 +49,7 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
 app.MapControllers();
 app.Run();
 
