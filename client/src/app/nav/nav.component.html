@@ -2,25 +2,24 @@
   <div class="container">
     <a class="navbar-brand" rputerLink="/" routerLinkActive="active">Dating App</a>
 
-    <ng-container *ngIf="accountService.currentUsers  | async">
+   
       <ul  class="navbar-nav me-auto mb-2 mb-md-0"> 
+        <ng-container *ngIf="accountService.currentUsers  | async">
         <li class="nav-item">
           <a class="nav-link" routerLink="/members" routerLinkActive="active">Matches</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/lists">Lists</a>
+          <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/messages">Messages</a>
+          <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
         </li>
-        <li class="nav-item" (click)="logout()">
-          <a class="nav-link" aria-disabled="true">Logout</a>
-        </li>
-      </ul>
-  
-
     </ng-container>
-   
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/errors" routerLinkActive="active" >Errors</a>
+    </li>
+  </ul>
+
    
     <div class="dropdown" *ngIf="(accountService.currentUsers  | async)  as user" dropdown>
       <a  class="dropdown-toggle text-light text-decoration-none"  dropdownToggle>Welcome {{user.username | titlecase}}</a>

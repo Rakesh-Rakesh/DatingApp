@@ -1,12 +1,4 @@
 using API;
-using API.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Net.Http.Headers;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +15,8 @@ builder.Services.AddSwaggerGen();
 
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod()
             .WithOrigins("http://Localhost:4200"));
 
