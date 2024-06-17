@@ -22,6 +22,14 @@
 			"group": "build",
 			"problemMatcher": [],
 			"label": "dotnet: build"
+		},
+		{
+			"type": "npm",
+			"script": "start",
+			"path": "client",
+			"problemMatcher": [],
+			"label": "npm: start - client",
+			"detail": "ng serve"
 		}
 	]
 }
