@@ -22,19 +22,19 @@ get404Error(){
   })
 }
 get400Error(){
-  this.http.get(this.baseUrl + 'boggy/bad-request').subscribe({
+  this.http.get(this.baseUrl + 'buggy/bad-request').subscribe({
     next: response => console.log(response),
     error: error => console.log(error)
   })
 }
 get500Error(){
-  this.http.get(this.baseUrl + 'boggy/server-error').subscribe({
+  this.http.get(this.baseUrl + 'buggy/server-error').subscribe({
     next: response => console.log(response),
     error: error => console.log(error)
   })
 }
 get401Error(){
-  this.http.get(this.baseUrl + 'boggy/auth').subscribe({
+  this.http.get(this.baseUrl + 'buggy/auth').subscribe({
     next: response => console.log(response),
     error: error => console.log(error)
   })
